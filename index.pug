@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Fireworks
+        link(rel="stylesheet", href="site.css")
+    body
+        img#moonImage(src="./assets/Moon.png").hidden-element
+        img#rocketSpriteImage(src="./assets/RocketSprite.png").hidden-element
+        img#panoramaImage(src="./assets/Panorama.png").hidden-element
+        //- img#logoImage(src="./assets/Logo.png").hidden-element
+
+        //- p.font-handwrite.hidden-element Must Use this
+        p.font-pf.hidden-element Must Use this
+        p.font-other.hidden-element Must Use this
+
+        //- .whole-screen-fixed
+        //-     svg#logoElement(
+        //-         xmlns:dc="http://purl.org/dc/elements/1.1/"
+        //-         xmlns:cc="http://creativecommons.org/ns#"
+        //-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        //-         xmlns:svg="http://www.w3.org/2000/svg"
+        //-         xmlns="http://www.w3.org/2000/svg"
+        //-         version="1.1"
+        //-         viewBox="0 0 720 220")
+        //-         metadata
+        //-             rdf:RDF
+        //-             cc:Work(rdf:about="")
+        //-                 dc:format image/svg+xml
+        //-                 dc:type(rdf:resource="http://purl.org/dc/dcmitype/StillImage")
+        //-                 dc:title
+        //-         g(transform="translate(-5.5184795,-97.343712)" id="layer1")
+        //-             g(id="g3254" transform="matrix(1.6676822,-1.6783012,-1.6510592,-1.6957613,965.39071,1893.1401)")
+        //-                 path#logoPath.hide-opacity(
+        //-                     /* Logo */
+        //-                     style="fill:#00668d;fill-opacity:0;stroke:#00668d;stroke-opacity:1"
+        //-                     stroke-width="1")
+        .screen
+            .top.hide-opacity#scoreContainerElement
+                p.font-other Zbývá <span id='scoreElement'></span> ohňostrojů k vidění
+            .middle
+                .flex-center.hide-opacity#helpElement
+                    p.help-text.font-other Klikni na raketu a uvidíš ohňostroj
+            .bottom
+                .flex-center
+                    button#startButton.hide-opacity.font-other Start
+
+        script(src="site.js")

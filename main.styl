@@ -1,0 +1,101 @@
+@import './styles/variables.styl'
+@import './styles/colors.styl'
+@import './styles/fonts.styl'
+// Elements
+html
+body
+canvas
+	margin: 0
+	padding: 0
+	overflow: hidden
+	width: 100vw
+	height: 100vh
+canvas
+	left: 0
+	top: 0
+p
+	@extend $text-base
+
+button
+	font-size: 2.5rem
+	background: #030f33
+	color: white
+	padding: 10px 30px
+	margin-bottom: calc(100px + 1rem)
+	box-sizing: border-box
+	border: 5px solid white
+	border-radius: 20px
+	outline: none
+	transition: all 200ms
+	&:hover
+		color: gray
+		border-color: gray
+		cursor: pointer
+	&:active
+		color: green
+		border-color: green
+
+
+#logoElement
+	max-height: 60.89093mm
+	max-width: 203.22929mm
+
+.hidden-element
+	position: fixed
+	z-index: -100
+	opacity: 0
+
+.hide
+	display: none
+.hide-opacity
+	opacity: 0
+
+.whole-screen-fixed
+	z-index: -1
+	position: fixed
+	left: 0
+	top: 0
+	right: 0
+	bottom: 0
+	width: 100%
+	height: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	svg
+		z-index: 1500
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+	* 
+		position: absolute
+
+
+
+.flex-center
+	display: flex
+	justify-content: center
+	align-items: center
+
+.screen
+	width: 100vw
+	height: 100vh
+	display: flex
+	align-items: stretch
+	flex-direction: column
+	*
+		transition: all 200ms
+	.top
+		@extend $container
+		order: -1
+	.middle
+		@extend $container
+		order: 0
+		flex: 1 0 auto
+	.bottom
+		@extend $container
+		order: 1
+.help-text
+	font-size: 2rem
+	color: #ffaa00
