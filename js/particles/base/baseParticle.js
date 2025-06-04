@@ -1,3 +1,6 @@
+/**
+ * Basic particle containing position, radius and angle properties.
+ */
 function baseParticle(cx, cy, inRadius, inAngle) {
     this.x = !isNaN(cx) ? cx : 0
     this.y = !isNaN(cy) ? cy : 0

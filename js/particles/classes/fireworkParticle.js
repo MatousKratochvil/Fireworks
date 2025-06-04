@@ -1,3 +1,6 @@
+/**
+ * Streaking particle emitted during fireworks.
+ */
 function fireworkParticle (cx, cy, inAngle, inColor) {
     baseMoveParticle.call(this, cx, cy, Math.min(Math.max(Math.round(window.innerWidth / 200),3),30), inAngle, Math.random() * 10)
 

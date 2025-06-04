@@ -1,3 +1,6 @@
+/**
+ * Initializes the canvas sketch and wires up event handlers.
+ */
 Sketch.create({
     container: document.querySelector('.whole-screen-fixed'),
     eventTarget: document.querySelector('body'),

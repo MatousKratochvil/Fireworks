@@ -1,3 +1,6 @@
+/**
+ * Expanding circle particle used to simulate an explosion.
+ */
 function explosionParticle (cx, cy, inRadius) {
     baseParticle.call(this, cx, cy, inRadius, 0)
 

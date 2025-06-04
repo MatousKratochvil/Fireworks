@@ -1,3 +1,6 @@
+/**
+ * Final scene that displays celebratory text and allows restart.
+ */
 var endScene = new sceneClass()
 
 endScene.rocket = {}

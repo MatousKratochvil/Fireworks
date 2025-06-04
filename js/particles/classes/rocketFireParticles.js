@@ -1,3 +1,6 @@
+/**
+ * Short-lived particle used for rocket exhaust flames.
+ */
 function rocketFireParticle (cx, cy, inRadius, inSpeed) {
     baseParticle.call(this, cx, cy, inRadius, 2 * Math.PI)
 

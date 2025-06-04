@@ -1,3 +1,6 @@
+/**
+ * Introductory scene with animated logo and moon.
+ */
 var introScene = new sceneClass()
 
 // For scaleing image in time

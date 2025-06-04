@@ -1,3 +1,6 @@
+/**
+ * Shared utilities and data accessible throughout the game.
+ */
 var common = {}
 
 common.centerTranslation = {

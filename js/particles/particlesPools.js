@@ -1,3 +1,6 @@
+/**
+ * Object storing reusable pools for different particle types.
+ */
 var particlePools = (function () {
     
     // --------------------

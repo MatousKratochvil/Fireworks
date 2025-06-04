@@ -1,3 +1,6 @@
+/**
+ * Utility methods for drawing images with various helpers.
+ */
 var imageCommon = (function() {
 
     drawImageInRect = (ctx, image, rect) => {
