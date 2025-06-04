@@ -19,11 +19,10 @@
     "gulp-babel-minify": "^0.5.1",
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^5.0.0",
-    "gulp-stylus": "^2.7.0",
-    "yargs-parser": ">=13.1.2"
+    "gulp-stylus": "^2.7.0"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "yargs-parser": ">=13.1.2"
+    "express": "^4.21.2",
+    "yargs-parser": "^20.2.9"
   }
 }
