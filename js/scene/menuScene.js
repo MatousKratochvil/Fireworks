@@ -17,13 +17,13 @@ menuScene.initialize = () => {
         complete: () => {
             // event to check in Mobile/Desktop
             ['touchend', 'click'].forEach(evt => {
-                elementManager.startButton.addEventListener(evt, function() {
+                const handler = function () {
                     that.isCompleted = true
                     elementManager.startButton.style.display = 'none'
-                    
-                    var clone = elementManager.startButton.cloneNode(true)
-                    elementManager.startButton.removeEventListener(evt, this)
-                })
+
+                    elementManager.startButton.removeEventListener(evt, handler)
+                }
+                elementManager.startButton.addEventListener(evt, handler)
             })
         }
     })
