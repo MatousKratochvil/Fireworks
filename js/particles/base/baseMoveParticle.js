@@ -1,3 +1,6 @@
+/**
+ * Particle that moves in a direction at a given speed.
+ */
 function baseMoveParticle(cx, cy, inRadius, inAngle, inSpeed) {
     baseParticle.call(this, cx, cy, inRadius, inAngle)
 

@@ -1,3 +1,6 @@
+/**
+ * Particle used for the "PF 2018" text animation.
+ */
 function textParticle (x,y, sx, sy) {
     
         var mouse = {}

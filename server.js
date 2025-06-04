@@ -1,3 +1,6 @@
+/**
+ * Simple Express server used to serve the built files.
+ */
 const express = require('express')
 const app = express()
 

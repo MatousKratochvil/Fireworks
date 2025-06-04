@@ -1,3 +1,6 @@
+/**
+ * Start menu scene with the play button animation.
+ */
 var menuScene = new sceneClass()
 
 // Hold button image animation

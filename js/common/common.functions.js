@@ -1,3 +1,6 @@
+/**
+ * Helper functions used by multiple modules.
+ */
 common.randomNumber = (min, max) => {
     return Math.min(Math.max(Math.random() * max, min), max)
 }

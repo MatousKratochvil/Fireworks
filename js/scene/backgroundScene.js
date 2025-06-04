@@ -1,3 +1,6 @@
+/**
+ * Scene responsible for rendering the static background elements.
+ */
 var backgroundScene = new sceneClass()
     
 // Cursor point object

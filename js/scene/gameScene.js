@@ -1,3 +1,6 @@
+/**
+ * Main gameplay scene where rockets are spawned and scored.
+ */
 var gameScreen = new sceneClass()
 
 gameScreen.initialize = () => {

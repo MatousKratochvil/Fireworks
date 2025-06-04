@@ -1,3 +1,6 @@
+/**
+ * Collection of configuration constants used across the game.
+ */
 CONSTANTS = {
     rocketSpeed: 5,
     minRocketSize: 0.4,
@@ -8,6 +11,9 @@ CONSTANTS = {
     rocketScore: 10
 }
 
+/**
+ * Color palette used for particles and background elements.
+ */
 COLORS = {
     bgColor: "#030f33",
     particleColorArray: ["#ffd905", "#30c13c", "#00d0ff", "#a500ff", "#ff6f1c", "#ff1c6f", "#cc0000"],
