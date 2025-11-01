@@ -93,5 +93,5 @@ gulp.task('copy-assets', function () {
 gulp.task('default', gulp.parallel('stylus', 'pug', 'babel', 'copy-assets'))
 gulp.task('debug', gulp.parallel('stylus-debug', 'pug', 'babel-debug', 'copy-assets'))
 
-gulp.task('es2015', gulp.parallel('stylus', 'pug', 'babel-es2015'))
-gulp.task('es2015-debug', gulp.parallel('stylus-debug', 'pug', 'babel-es2015-debug'))
+gulp.task('es2015', gulp.parallel('stylus', 'pug', 'babel-es2015', 'copy-assets'))
+gulp.task('es2015-debug', gulp.parallel('stylus-debug', 'pug', 'babel-es2015-debug', 'copy-assets'))
