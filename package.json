@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "build": "gulp"
   },
   "author": "",
@@ -18,13 +17,9 @@
     "babel-preset-es2015-without-strict": "^0.0.4",
     "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
-    "gulp-babel-minify": "^0.5.1",
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^5.0.0",
-    "gulp-stylus": "^2.7.0"
-  },
-  "dependencies": {
-    "express": "^4.21.2",
-    "yargs-parser": "^20.2.9"
+    "gulp-stylus": "^2.7.0",
+    "sketch-js": "^1.1.3"
   }
 }

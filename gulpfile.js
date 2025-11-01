@@ -34,7 +34,7 @@ gulp.task('pug', function () {
 
 })
 const js_files = [
-    'vendor/*.js', 
+    'vendor/*.js',
     'js/common/base.js',
     'js/common/*.js',
     'js/particles/base/*.js',
@@ -52,15 +52,9 @@ gulp.task('babel-debug', function () {
         .pipe(gulp.dest('./prod/'))
 })
 
-const minifyjs = require('gulp-babel-minify')
 gulp.task('babel', function () {
     return gulp.src(js_files)
         .pipe(babel())
-        .pipe(minifyjs({
-            mangle: {
-                keepClassName: true
-            }
-        }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
@@ -68,19 +62,14 @@ gulp.task('babel', function () {
 
 gulp.task('babel-es2015-debug', function () {
     return gulp.src(js_files)
-        .pipe(babel({presets: ['es2015-without-strict'], ignore: ['./vendor/*.js'] }))
+        .pipe(babel({presets: ['es2015-without-strict'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
 
 gulp.task('babel-es2015', function () {
     return gulp.src(js_files)
-        .pipe(babel({presets: ['es2015-without-strict'], ignore: ['./vendor/*.js'] }))
-        .pipe(minifyjs({
-            mangle: {
-                keepClassName: true
-            }
-        }))
+        .pipe(babel({presets: ['es2015-without-strict'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
