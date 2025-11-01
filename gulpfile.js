@@ -34,6 +34,7 @@ gulp.task('pug', function () {
 
 })
 const js_files = [
+    'vendor/*.js',
     'js/common/base.js',
     'js/common/*.js',
     'js/particles/base/*.js',

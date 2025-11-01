@@ -20,7 +20,7 @@
     "gulp-babel-minify": "^0.5.1",
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^5.0.0",
-    "gulp-stylus": "^2.7.0"
-  },
-  "dependencies": {}
+    "gulp-stylus": "^2.7.0",
+    "sketch-js": "^1.1.3"
+  }
 }
