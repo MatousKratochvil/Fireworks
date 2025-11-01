@@ -52,7 +52,6 @@ gulp.task('babel-debug', function () {
         .pipe(gulp.dest('./prod/'))
 })
 
-const minifyjs = require('gulp-babel-minify')
 gulp.task('babel', function () {
     return gulp.src(js_files)
         .pipe(babel())
