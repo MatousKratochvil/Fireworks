@@ -34,23 +34,16 @@ gulp.task('pug', function () {
 
 })
 const js_files = [
-    '!**/*.zaloha.js',
     'vendor/*.js', 
     'js/common/base.js',
     'js/common/*.js',
     'js/particles/base/*.js',
-    'js/particles/**/*.js',
+    'js/particles/classes/*.js',
     'js/particles/*.js',
     'js/managers/*.js',
     'js/classes/*.js',
-    'js/scene/backgroundScene.js',
-    'js/scene/introScene.js',
-    'js/scene/menuScene.js',
-    'js/scene/gameScene.js',
-    'js/scene/endScene.js',
-    'js/*.js',
-    'main.js',
-    '!gulpfile.js']
+    'js/scene/*.js',
+    'main.js']
     
 gulp.task('babel-debug', function () {
     return gulp.src(js_files)
@@ -92,8 +85,13 @@ gulp.task('babel-es2015', function () {
         .pipe(gulp.dest('./prod/'))
 })
 
-gulp.task('default', ['stylus', 'pug', 'babel'])
-gulp.task('debug', ['stylus-debug', 'pug', 'babel-debug'])
+gulp.task('copy-assets', function () {
+    return gulp.src('assets/**/*')
+        .pipe(gulp.dest('./prod/assets/'))
+})
 
-gulp.task('es2015', ['stylus', 'pug', 'babel-es2015'])
-gulp.task('es2015-debug', ['stylus-debug', 'pug', 'babel-es2015-debug'])
+gulp.task('default', gulp.parallel('stylus', 'pug', 'babel', 'copy-assets'))
+gulp.task('debug', gulp.parallel('stylus-debug', 'pug', 'babel-debug', 'copy-assets'))
+
+gulp.task('es2015', gulp.parallel('stylus', 'pug', 'babel-es2015', 'copy-assets'))
+gulp.task('es2015-debug', gulp.parallel('stylus-debug', 'pug', 'babel-es2015-debug', 'copy-assets'))
