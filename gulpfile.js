@@ -62,14 +62,14 @@ gulp.task('babel', function () {
 
 gulp.task('babel-es2015-debug', function () {
     return gulp.src(js_files)
-        .pipe(babel({presets: ['es2015-without-strict'], ignore: ['./vendor/*.js'] }))
+        .pipe(babel({ sourceType: 'script', presets: ['@babel/preset-env'], ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
 
 gulp.task('babel-es2015', function () {
     return gulp.src(js_files)
-        .pipe(babel({presets: ['es2015-without-strict'], ignore: ['./vendor/*.js'] }))
+        .pipe(babel({ sourceType: 'script', presets: ['@babel/preset-env'], ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
