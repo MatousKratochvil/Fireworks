@@ -47,14 +47,14 @@ const js_files = [
     
 gulp.task('babel-debug', function () {
     return gulp.src(js_files)
-        .pipe(babel())
+        .pipe(babel({ ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
 
 gulp.task('babel', function () {
     return gulp.src(js_files)
-        .pipe(babel())
+        .pipe(babel({ ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
@@ -62,14 +62,14 @@ gulp.task('babel', function () {
 
 gulp.task('babel-es2015-debug', function () {
     return gulp.src(js_files)
-        .pipe(babel({presets: ['es2015-without-strict'] }))
+        .pipe(babel({presets: ['es2015-without-strict'], ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
 
 gulp.task('babel-es2015', function () {
     return gulp.src(js_files)
-        .pipe(babel({presets: ['es2015-without-strict'] }))
+        .pipe(babel({presets: ['es2015-without-strict'], ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
