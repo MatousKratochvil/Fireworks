@@ -19,8 +19,7 @@
     "gulp-pug": "^5.0.0",
     "plugin-error": "^2.0.1",
     "postcss": "^8.5.8",
-    "stylus": "^0.64.0",
-    "through2": "^4.0.2"
+    "stylus": "^0.64.0"
   },
   "overrides": {
     "semver": "^7.7.1"
