@@ -84,14 +84,14 @@ const js_files = [
     
 gulp.task('babel-debug', function () {
     return gulp.src(js_files)
-        .pipe(babel({ ignore: ['./vendor/*.js'] }))
+        .pipe(babel({ sourceType: 'script', ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
 
 gulp.task('babel', function () {
     return gulp.src(js_files)
-        .pipe(babel({ ignore: ['./vendor/*.js'] }))
+        .pipe(babel({ sourceType: 'script', ignore: ['./vendor/*.js'] }))
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./prod/'))
 })
