@@ -1,27 +1,64 @@
 const gulp = require('gulp')
-const stylus = require('gulp-stylus')
 const pug = require('gulp-pug')
 const babel = require('gulp-babel')
 const concat = require('gulp-concat');
+const stylus = require('stylus')
+const postcss = require('postcss')
+const autoprefixer = require('autoprefixer')
+const through2 = require('through2')
+const PluginError = require('plugin-error')
+const path = require('path')
 
 
-const autoprefixer = require('autoprefixer-stylus')
+function compileStylus(options = {}) {
+    return through2.obj(function (file, enc, cb) {
+        if (file.isNull()) {
+            cb(null, file)
+            return
+        }
+
+        if (file.isStream()) {
+            cb(new PluginError('stylus', 'Streaming not supported'))
+            return
+        }
+
+        const stylusOptions = Object.assign({
+            filename: file.path,
+            paths: [path.dirname(file.path)]
+        }, options)
+
+        const originalPath = file.path
+        stylus.render(file.contents.toString('utf8'), stylusOptions, (err, css) => {
+            if (err) {
+                cb(new PluginError('stylus', err))
+                return
+            }
+
+            postcss([autoprefixer])
+                .process(css, { from: originalPath, to: originalPath.replace(/\.styl$/i, '.css') })
+                .then(result => {
+                    result.warnings().forEach(warning => {
+                        console.warn(warning.toString())
+                    })
+                    file.contents = Buffer.from(result.css)
+                    file.path = file.path.replace(/\.styl$/i, '.css')
+                    cb(null, file)
+                })
+                .catch(postcssError => cb(new PluginError('postcss', postcssError)))
+        })
+    })
+}
+
 gulp.task('stylus', function () {
     return gulp.src('*.styl')
-        .pipe(stylus({
-            use: [autoprefixer()],
-            compress: true
-        }))
+        .pipe(compileStylus({ compress: true }))
         .pipe(concat('site.css'))
         .pipe(gulp.dest('./prod/'))
 })
 
 gulp.task('stylus-debug', function () {
     return gulp.src('*.styl')
-        .pipe(stylus({
-            use: [autoprefixer()],
-            compress: false
-        }))
+        .pipe(compileStylus({ compress: false }))
         .pipe(concat('site.css'))
         .pipe(gulp.dest('./prod/'))
 })

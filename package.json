@@ -12,12 +12,15 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",
-    "autoprefixer-stylus": "^1.0.0",
+    "autoprefixer": "^10.4.27",
     "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^5.0.0",
-    "gulp-stylus": "^2.7.0"
+    "plugin-error": "^2.0.1",
+    "postcss": "^8.5.8",
+    "stylus": "^0.64.0",
+    "through2": "^4.0.2"
   },
   "overrides": {
     "semver": "^7.7.1"
