@@ -87,9 +87,11 @@ function rocketClass (scale, inSpeed) {
             particle.draw(ctx)
         })
 
-        ctx.drawImage(elementManager.rocketSpriteImage, 
-            spriteRect.x, spriteRect.y, spriteRect.width, spriteRect.height,
-            -((spriteRect.width * scl) / 2), -((spriteRect.height * scl) / 2), spriteRect.width * scl, spriteRect.height * scl)
+        if (imageCommon.isDrawableImage(elementManager.rocketSpriteImage)) {
+            ctx.drawImage(elementManager.rocketSpriteImage, 
+                spriteRect.x, spriteRect.y, spriteRect.width, spriteRect.height,
+                -((spriteRect.width * scl) / 2), -((spriteRect.height * scl) / 2), spriteRect.width * scl, spriteRect.height * scl)
+        }
     
         ctx.restore()
 
