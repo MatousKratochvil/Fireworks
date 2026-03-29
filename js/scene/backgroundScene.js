@@ -4,14 +4,19 @@
 var backgroundScene = new sceneClass()
     
 // Cursor point object
-backgroundScene.cursorPoint = {}
+backgroundScene.cursorPoint = {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
+}
 // Panorama translate point
 backgroundScene.panoramaTranslatePoint = {}
 // For check if moon animation is over
 backgroundScene.showPanorama = false    
 
 backgroundScene.cursorEvent = (cursor) => {
-    backgroundScene.cursorPoint = cursor
+    if (cursor && Number.isFinite(cursor.x) && Number.isFinite(cursor.y)) {
+        backgroundScene.cursorPoint = cursor
+    }
 }
 
 backgroundScene.update = (dt) => {
