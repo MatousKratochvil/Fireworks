@@ -87,7 +87,7 @@ function rocketClass (scale, inSpeed) {
             particle.draw(ctx)
         })
 
-        if (elementManager.rocketSpriteImage && elementManager.rocketSpriteImage.complete && elementManager.rocketSpriteImage.naturalWidth > 0 && elementManager.rocketSpriteImage.naturalHeight > 0) {
+        if (imageCommon.isDrawableImage(elementManager.rocketSpriteImage)) {
             ctx.drawImage(elementManager.rocketSpriteImage, 
                 spriteRect.x, spriteRect.y, spriteRect.width, spriteRect.height,
                 -((spriteRect.width * scl) / 2), -((spriteRect.height * scl) / 2), spriteRect.width * scl, spriteRect.height * scl)

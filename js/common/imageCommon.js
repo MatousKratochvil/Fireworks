@@ -3,9 +3,9 @@
  */
 var imageCommon = (function() {
 
-    isDrawableImage = image => image && image.complete && image.naturalWidth > 0 && image.naturalHeight > 0
+    var isDrawableImage = image => image && image.complete && image.naturalWidth > 0 && image.naturalHeight > 0
 
-    drawImageInRect = (ctx, image, rect) => {
+    var drawImageInRect = (ctx, image, rect) => {
         if (!isDrawableImage(image)) {
             return
         }
@@ -13,7 +13,7 @@ var imageCommon = (function() {
             rect.x, rect.y, rect.width, rect.height)
     }
 
-    drawImageInScreenCenter = (ctx, image, scale) => {
+    var drawImageInScreenCenter = (ctx, image, scale) => {
         if (!isDrawableImage(image)) {
             return
         }
@@ -22,7 +22,7 @@ var imageCommon = (function() {
             image.width * scale, image.height * scale)
     }
     
-    drawImageInScreenCenterTranslate = (ctx, image, scale, dx, dy) => {
+    var drawImageInScreenCenterTranslate = (ctx, image, scale, dx, dy) => {
         if (!isDrawableImage(image)) {
             return
         }
@@ -32,6 +32,7 @@ var imageCommon = (function() {
     }
 
     return {
+        isDrawableImage,
         drawImageInRect,
         drawImageInScreenCenter,
         drawImageInScreenCenterTranslate
