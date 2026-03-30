@@ -19,19 +19,24 @@ endScene.initialize = () => {
     elementManager.helpElement.style.opacity = 0
     
     elementManager.startButton.innerHTML = "Restart";
+    elementManager.startButton.onclick = null
+    elementManager.startButton.ontouchend = null
 
-    ['touchend', 'click'].forEach(evt => {
-        elementManager.startButton.addEventListener(evt, function() {
-            sceneManager.replaySceneAtIndex(2, true)
-            elementManager.startButton.style.display = 'none'
+    const restartHandler = function (event) {
+        if (event)
+            event.preventDefault()
 
-            endScene.isInitialized = false
-            endScene.isInitializedOnContext = false
+        sceneManager.replaySceneAtIndex(1, true)
+        elementManager.startButton.style.display = 'none'
+        elementManager.startButton.onclick = null
+        elementManager.startButton.ontouchend = null
 
-            var clone = elementManager.startButton.cloneNode(true)
-            elementManager.startButton.removeEventListener(evt, this)
-        })
-    })
+        endScene.isInitialized = false
+        endScene.isInitializedOnContext = false
+    }
+
+    elementManager.startButton.onclick = restartHandler
+    elementManager.startButton.ontouchend = restartHandler
 }
 
 endScene.initializeOnContext = (ctx) => {

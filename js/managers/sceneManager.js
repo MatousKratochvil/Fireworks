@@ -75,7 +75,9 @@ var sceneManager = (function () {
      * @param {number} index - index where to put scene to array
      */
     addSceneAtIndex = (scene, index) => {
-        sceneArray.splice(index, 0, scene)
+        scene.sceneIndex = index
+        sceneArray.push(scene)
+        sceneArray.sort((leftScene, rightScene) => leftScene.sceneIndex - rightScene.sceneIndex)
         trimIndex()
     }
 
