@@ -115,7 +115,7 @@ gulp.task('babel-es2015', function () {
 })
 
 gulp.task('copy-assets', function () {
-    return gulp.src('assets/**/*')
+    return gulp.src('assets/**/*', { encoding: false })
         .pipe(gulp.dest('./prod/assets/'))
 })
 

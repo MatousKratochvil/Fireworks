@@ -68,7 +68,7 @@ function rocketClass (scale, inSpeed) {
         particles.forEach(particle => { 
             particle.update(dt)
             if (particle.isDead)
-                particle.reset(anime.random(-((spriteRect.width * scale) / 4), (spriteRect.width * scale) / 4), (spriteRect.height * scale) / 2, spriteRect.width * scale, this.speed)
+                particle.reset(anime.random(-((spriteRect.width * scl) / 4), (spriteRect.width * scl) / 4), (spriteRect.height * scl) / 2, spriteRect.width * scl, this.speed)
         })
     }
 
@@ -141,13 +141,13 @@ function rocketClass (scale, inSpeed) {
 
     this.getCenter = () => {
         return {
-            x: actualPoint.x + ((spriteRect.width * scale) / 2),
-            y: actualPoint.y + ((spriteRect.height * scale) / 2),
+            x: actualPoint.x + ((spriteRect.width * scl) / 2),
+            y: actualPoint.y + ((spriteRect.height * scl) / 2),
         }
     }
 
     this.getRadius = () => {
-        return spriteRect.height * scale
+        return spriteRect.height * scl
     }
 
     this.init()
