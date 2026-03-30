@@ -2,6 +2,7 @@
  * Final scene that displays celebratory text and allows restart.
  */
 var endScene = new sceneClass()
+const GAME_SCENE_INDEX = 1
 
 endScene.rocket = {}
 endScene.data = {}
@@ -26,7 +27,7 @@ endScene.initialize = () => {
         if (event)
             event.preventDefault()
 
-        sceneManager.replaySceneAtIndex(1, true)
+        sceneManager.replaySceneAtIndex(GAME_SCENE_INDEX, true)
         elementManager.startButton.style.display = 'none'
         elementManager.startButton.onclick = null
         elementManager.startButton.ontouchend = null

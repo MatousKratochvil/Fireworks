@@ -13,7 +13,11 @@ var sceneManager = (function () {
      */
     var sceneArray = []
     /**
-     * Index of actuas Scene in game loop
+     * Stores explicit scene ordering without mutating the scenes.
+     */
+    var sceneIndexMap = new WeakMap()
+    /**
+     * Index of actual Scene in game loop
      */
     var actualSceneIndex = -1
     /**
@@ -75,9 +79,14 @@ var sceneManager = (function () {
      * @param {number} index - index where to put scene to array
      */
     addSceneAtIndex = (scene, index) => {
-        scene.sceneIndex = index
-        sceneArray.push(scene)
-        sceneArray.sort((leftScene, rightScene) => leftScene.sceneIndex - rightScene.sceneIndex)
+        sceneIndexMap.set(scene, index)
+        var insertionIndex = sceneArray.findIndex(arrayScene => sceneIndexMap.get(arrayScene) > index)
+
+        if (insertionIndex < 0)
+            sceneArray.push(scene)
+        else
+            sceneArray.splice(insertionIndex, 0, scene)
+
         trimIndex()
     }
 
@@ -107,6 +116,7 @@ var sceneManager = (function () {
      */
     clearScenes = () => {
         sceneArray = []
+        sceneIndexMap = new WeakMap()
         actualSceneIndex = -1
     }
 
