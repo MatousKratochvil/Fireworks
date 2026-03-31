@@ -2,6 +2,14 @@
  * Scene responsible for rendering the static background elements.
  */
 var backgroundScene = new sceneClass()
+var panoramaInterpolationSpeed = 0.05
+var panoramaCursorXDivisor = 120
+var panoramaCursorYDivisor = 200
+var panoramaLayerArray = [
+    {imageName: 'panoramaBackImage', scale: 1.5, moveScale: 0.35, lift: 20},
+    {imageName: 'panoramaImage', scale: 1.5, moveScale: 0.6, lift: 0},
+    {imageName: 'panoramaFrontImage', scale: 1.5, moveScale: 0.95, lift: 40}
+]
     
 // Cursor point object
 backgroundScene.cursorPoint = {
@@ -24,8 +32,8 @@ backgroundScene.update = (dt) => {
     var that = backgroundScene
 
     if (that.showPanorama) {
-        that.panoramaTranslatePoint.x += (that.panoramaTargetPoint.x - that.panoramaTranslatePoint.x) * 0.05
-        that.panoramaTranslatePoint.y += (that.panoramaTargetPoint.y - that.panoramaTranslatePoint.y) * 0.05
+        that.panoramaTranslatePoint.x += (that.panoramaTargetPoint.x - that.panoramaTranslatePoint.x) * panoramaInterpolationSpeed
+        that.panoramaTranslatePoint.y += (that.panoramaTargetPoint.y - that.panoramaTranslatePoint.y) * panoramaInterpolationSpeed
     }
 }
 
@@ -50,18 +58,13 @@ backgroundScene.draw = (ctx) => {
     ctx.restore()
 
     if (that.showPanorama) {
-        var panoramaTranslateX = (that.cursorPoint.x - window.innerWidth / 2) / 120
-        var panoramaTranslateY = (that.cursorPoint.y - window.innerHeight / 2) / 200
-        var panoramaLayerArray = [
-            {image: elementManager.panoramaBackImage, scale: 1.5, moveScale: 0.35, lift: 20},
-            {image: elementManager.panoramaImage, scale: 1.5, moveScale: 0.6, lift: 0},
-            {image: elementManager.panoramaFrontImage, scale: 1.5, moveScale: 0.95, lift: 40}
-        ]
+        var panoramaTranslateX = (that.cursorPoint.x - window.innerWidth / 2) / panoramaCursorXDivisor
+        var panoramaTranslateY = (that.cursorPoint.y - window.innerHeight / 2) / panoramaCursorYDivisor
 
         panoramaLayerArray.forEach(layer => {
             imageCommon.drawImageInScreenBottomCenterTranslate(
                 ctx,
-                layer.image,
+                elementManager[layer.imageName],
                 layer.scale,
                 (that.panoramaTranslatePoint.x * layer.moveScale) + (panoramaTranslateX * layer.moveScale),
                 (that.panoramaTranslatePoint.y * layer.moveScale) + (panoramaTranslateY * layer.moveScale) + layer.lift
