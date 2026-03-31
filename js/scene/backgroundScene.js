@@ -51,7 +51,8 @@ backgroundScene.draw = (ctx) => {
 
     ctx.translate(translatePoint.x, translatePoint.y)
 
-    imageCommon.drawImageInScreenCenter(ctx, elementManager.moonImage, 1)
+    if (!that.showPanorama)
+        imageCommon.drawImageInScreenCenter(ctx, elementManager.moonImage, 1)
     if (elementManager.logoImage)
         imageCommon.drawImageInScreenCenter(ctx, elementManager.logoImage, 1/10)
 
