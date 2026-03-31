@@ -12,22 +12,29 @@ menuScene.initialize = () => {
     if (sceneManager.hasBackground())
         sceneManager.getBackgroundScene().panoramaView({x:0, y: window.innerHeight/2})
 
+    elementManager.startButton.innerHTML = "Start"
+    elementManager.startButton.style.display = 'block'
+    elementManager.startButton.onclick = null
+    elementManager.startButton.ontouchend = null
+
     that.buttonAnimation = anime.timeline({
         targets: elementManager.startButton,
     }).add({
         opacity: 1,
         duration: 500,
         complete: () => {
-            // event to check in Mobile/Desktop
-            ['touchend', 'click'].forEach(evt => {
-                const handler = function () {
-                    that.isCompleted = true
-                    elementManager.startButton.style.display = 'none'
+            const handler = function (event) {
+                if (event)
+                    event.preventDefault()
 
-                    elementManager.startButton.removeEventListener(evt, handler)
-                }
-                elementManager.startButton.addEventListener(evt, handler)
-            })
+                that.isCompleted = true
+                elementManager.startButton.style.display = 'none'
+                elementManager.startButton.onclick = null
+                elementManager.startButton.ontouchend = null
+            }
+
+            elementManager.startButton.onclick = handler
+            elementManager.startButton.ontouchend = handler
         }
     })
 }
