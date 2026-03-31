@@ -20,9 +20,17 @@ var elementManager = (function () {
      */
     var rocketSpriteImage = document.getElementById('rocketSpriteImage')
     /**
+     * Holds distant panorama image
+     */
+    var panoramaBackImage = document.getElementById('panoramaBackImage')
+    /**
      * Holds panorama image
      */
     var panoramaImage = document.getElementById('panoramaImage')
+    /**
+     * Holds front panorama image
+     */
+    var panoramaFrontImage = document.getElementById('panoramaFrontImage')
     
     // --------------------
 
@@ -71,7 +79,9 @@ var elementManager = (function () {
         logoImage,
         moonImage,
         rocketSpriteImage,
+        panoramaBackImage,
         panoramaImage,
+        panoramaFrontImage,
 
         // Elements
         startButton,
