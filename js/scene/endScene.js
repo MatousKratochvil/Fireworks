@@ -3,10 +3,21 @@
  */
 var endScene = new sceneClass()
 const GAME_SCENE_INDEX = 1
+const PF_DISPLAY_FONT = "'Bradley Hand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
 
 endScene.rocket = {}
 endScene.data = {}
 endScene.particles = []
+
+endScene.getDisplayedYear = () => {
+    const actualDate = new Date()
+    const actualYear = actualDate.getFullYear()
+
+    if (actualDate.getMonth() < 2)
+        return actualYear - 1
+
+    return actualYear
+}
 
 endScene.initialize = () => {
     var that = endScene
@@ -43,12 +54,13 @@ endScene.initialize = () => {
 endScene.initializeOnContext = (ctx) => {
     var canvas = elementManager.getCanvasSketch()
     common.clearCanvas(canvas)
+    var pfText = "PF " + endScene.getDisplayedYear()
     
     canvas.style.letterSpacing = Math.max((window.innerWidth / 20), 60) / 10+'px';
-    ctx.font = "bold "+(window.innerWidth/4)+"px PF-font";
+    ctx.font = "bold "+(window.innerWidth/4)+"px " + PF_DISPLAY_FONT;
     ctx.fillStyle = "#fff"
     ctx.textAlign = "center";
-    ctx.fillText("PF 2018", window.innerWidth/2, window.innerHeight/2);
+    ctx.fillText(pfText, window.innerWidth/2, window.innerHeight/2);
 
     var data  = ctx.getImageData(0, 0, window.innerWidth, window.innerHeight).data;
     common.clearCanvas(elementManager.getCanvasSketch())

@@ -140,13 +140,13 @@ function rocketClass (scale, inSpeed) {
 
     this.getCenter = () => {
         return {
-            x: actualPoint.x + ((spriteRect.width * scl) / 2),
-            y: actualPoint.y + ((spriteRect.height * scl) / 2),
+            x: actualPoint.x + ((spriteRect.width * scale) / 2),
+            y: actualPoint.y + ((spriteRect.height * scale) / 2),
         }
     }
 
     this.getRadius = () => {
-        return spriteRect.height * scl
+        return spriteRect.height * scale
     }
 
     this.init()
